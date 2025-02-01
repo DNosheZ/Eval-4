@@ -162,6 +162,9 @@ SELECT titulo, precio FROM libreriadigital.libros ORDER BY precio ASC LIMIT 1;
 -- Consultar los pedidos con más de 2 ejemplares de un mismo libro.
 SELECT * FROM libreriadigital.pedidos WHERE cantidad >= 2;
 
+-- Eliminar los pedidos que fueron hechos hace más de un año.
+DELETE FROM libreriadigital.pedidos where fecha_pedido < YEAR(CURDATE());
+
 -- Resetear la tabla de pedidos eliminando todos los datos, pero sin eliminar la estructura.
 TRUNCATE libreriadigital.pedidos;
 	
