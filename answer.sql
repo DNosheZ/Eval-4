@@ -143,22 +143,25 @@ UPDATE libreriadigital.libros
 SET stock = stock - 1
 WHERE id = 10 AND stock >= 1;
 
+-- Mostrar los pedidos realizados en el último mes.
+SELECT * FROM libreriadigital.pedidos 
+WHERE fecha_pedido <= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);
 
-SELECT * FROM libreriadigital.libros where autor='Ernesto Sabato' ORDER BY precio ASC;
-
-
-SELECT * FROM libreriadigital.pedidos WHERE fecha_pedido >= '2024-01-01' AND fecha_pedido <= '2024-01-31';
-
+-- Mostrar los títulos de los libros cuyo stock sea menor a 5.
 SELECT titulo FROM libreriadigital.libros WHERE stock < 5;
 
+-- Listar los clientes junto con el número total de pedidos que han realizado. 
 SELECT nombre, (SELECT COUNT(*) FROM libreriadigital.pedidos WHERE pedidos.id_cliente = clientes.id) AS Total_Pedidos FROM libreriadigital.clientes;
 
-
+-- Obtener el libro más caro y el más barato de la librería.
 SELECT titulo, precio FROM libreriadigital.libros ORDER BY precio DESC LIMIT 1;
 
 
 SELECT titulo, precio FROM libreriadigital.libros ORDER BY precio ASC LIMIT 1;
 
+-- Consultar los pedidos con más de 2 ejemplares de un mismo libro.
+SELECT * FROM libreriadigital.pedidos WHERE cantidad >= 2;
 
-SELECT * FROM libreriadigital.pedidos WHERE cantidad > 2;
+-- Resetear la tabla de pedidos eliminando todos los datos, pero sin eliminar la estructura.
+TRUNCATE libreriadigital.pedidos;
 	
