@@ -121,7 +121,7 @@ WHERE EXISTS (
 
 UPDATE libreriadigital.libros 
 SET stock = stock - 2
-WHERE id = 2 AND stock >= 2;
+WHERE id = 8 AND stock >= 2;
 
 INSERT INTO libreriadigital.pedidos (id_cliente, id_libro, cantidad, fecha_pedido)
 SELECT 5, 4, 1, '2024-01-21'
