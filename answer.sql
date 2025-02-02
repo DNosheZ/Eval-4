@@ -53,7 +53,6 @@ INSERT INTO clientes (nombre, correo, ciudad, fecha_registro) VALUES
 ('Jorge Castillo', 'jorge.castillo@email.com', 'Cali', '2023-11-05'),
 ('Ana Ramírez', 'ana.ramirez@email.com', 'Barranquilla', '2023-08-18'),
 ('Sofía González', 'sofia.gonzalez@email.com', 'Cartagena', '2024-01-15');
-('Sofia Gonzalez', 'sofia.gonzalez@email.com', 'Cartagena', '2024-01-15');
 
 -- INSERCIÓN DE PEDIDOS Y ACTUALIZACIÓN
 
@@ -143,7 +142,7 @@ WHERE id = 4 AND stock >= 1;
 INSERT INTO pedidos (id_cliente, id_libro, cantidad, fecha_pedido)
 SELECT 2, 10, 1, '2024-01-23'
 WHERE EXISTS (
-    SELECT 1 FROM llibros WHERE id = 10 AND stock >= 1
+    SELECT 1 FROM libros WHERE id = 10 AND stock >= 1
 );
 
 UPDATE libros 
