@@ -47,14 +47,14 @@ INSERT INTO libros (titulo, autor, genero, precio, stock, editorial) VALUES
 ('El Aleph', 'Jorge Luis Borges', 'Cuento', 33000, 2, 'Emecé Editores'),
 ('La ciudad y los perros', 'Mario Vargas Llosa', 'Novela', 37000, 12, 'Seix Barral');
 
-INSERT INTO clientes (nombre, correo, ciudad, fecha_registro) VALUES
-('Carlos Pérez', 'carlos.perez@email.com', 'Bogotá', '2023-10-12'),
-('Mariana López', 'mariana.lopez@email.com', 'Medellín', '2023-09-25'),
-('Jorge Castillo', 'jorge.castillo@email.com', 'Cali', '2023-11-05'),
-('Ana Ramírez', 'ana.ramirez@email.com', 'Barranquilla', '2023-08-18'),
-('Sofía González', 'sofia.gonzalez@email.com', 'Cartagena', '2024-01-15');
 
--- INSERCIÓN DE PEDIDOS Y ACTUALIZACIÓN
+INSERT INTO libreriadigital.clientes (nombre, correo, ciudad, fecha_registro) VALUES
+('Carlos Perez', 'carlos.perez@gmail.com', 'Bogota', '2023-10-12'),
+('Mariana Lopez', 'mariana.lopez@hotmail.com', 'Medellin', '2023-09-25'),
+('Jorge Castillo', 'jorge.castillo@gmail.com', 'Cali', '2023-11-05'),
+('Ana Ramirez', 'ana.ramirez@gmail.com', 'Barranquilla', '2023-08-18'),
+('Sofia Gonzalez', 'sofia.gonzalez@hotmail.com', 'Cartagena', '2024-01-15');
+
 
 -- Tres pedidos del mismo cliente (Carlos Perez)
 INSERT INTO pedidos (id_cliente, id_libro, cantidad, fecha_pedido)
@@ -183,3 +183,4 @@ DELETE FROM pedidos where fecha_pedido < YEAR(CURDATE());
 -- Resetear la tabla de pedidos eliminando todos los datos, pero sin eliminar la estructura.
 TRUNCATE TABLE pedidos;
 	
+DROP TABLE clientes;
