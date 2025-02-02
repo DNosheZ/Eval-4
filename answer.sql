@@ -1,3 +1,5 @@
+CREATE DATABASE libreriadigital;
+
 CREATE TABLE `libreriadigital`.`clientes` (
   `id` INT NOT NULL UNIQUE AUTO_INCREMENT,
    `nombre` VARCHAR(100),
@@ -43,11 +45,11 @@ INSERT INTO libreriadigital.libros (titulo, autor, genero, precio, stock, editor
 ('La ciudad y los perros', 'Mario Vargas Llosa', 'Novela', 37000, 12, 'Seix Barral');
 
 INSERT INTO libreriadigital.clientes (nombre, correo, ciudad, fecha_registro) VALUES
-('Carlos Perez', 'carlos.perez@email.com', 'Bogota', '2023-10-12'),
-('Mariana Lopez', 'mariana.lopez@email.com', 'Medellin', '2023-09-25'),
-('Jorge Castillo', 'jorge.castillo@email.com', 'Cali', '2023-11-05'),
-('Ana Ramirez', 'ana.ramirez@email.com', 'Barranquilla', '2023-08-18'),
-('Sofia Gonzalez', 'sofia.gonzalez@email.com', 'Cartagena', '2024-01-15');
+('Carlos Perez', 'carlos.perez@gmail.com', 'Bogota', '2023-10-12'),
+('Mariana Lopez', 'mariana.lopez@hotmail.com', 'Medellin', '2023-09-25'),
+('Jorge Castillo', 'jorge.castillo@gmail.com', 'Cali', '2023-11-05'),
+('Ana Ramirez', 'ana.ramirez@gmail.com', 'Barranquilla', '2023-08-18'),
+('Sofia Gonzalez', 'sofia.gonzalez@hotmail.com', 'Cartagena', '2024-01-15');
 
 -- Insercion en pedidos
 -- Tres pedidos del mismo cliente (Carlos Perez)
@@ -168,3 +170,4 @@ DELETE FROM libreriadigital.pedidos where fecha_pedido < YEAR(CURDATE());
 -- Resetear la tabla de pedidos eliminando todos los datos, pero sin eliminar la estructura.
 TRUNCATE libreriadigital.pedidos;
 	
+DROP TABLE clientes;
