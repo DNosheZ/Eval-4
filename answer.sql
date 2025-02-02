@@ -8,7 +8,7 @@ CREATE TABLE `libreriadigital`.`clientes` (
   
 CREATE TABLE `libreriadigital`.`libros` (
   `id` INT NOT NULL UNIQUE AUTO_INCREMENT,
-   `titulo` VARCHAR(50),
+   `titulo` VARCHAR(50) UNIQUE,
    `autor` VARCHAR(100),
    `genero` VARCHAR(100),
    `precio` INT,
@@ -160,7 +160,7 @@ SELECT titulo, precio FROM libreriadigital.libros ORDER BY precio DESC LIMIT 1;
 SELECT titulo, precio FROM libreriadigital.libros ORDER BY precio ASC LIMIT 1;
 
 -- Consultar los pedidos con más de 2 ejemplares de un mismo libro.
-SELECT * FROM libreriadigital.pedidos WHERE cantidad >= 2;
+SELECT * FROM libreriadigital.pedidos WHERE cantidad >=2;
 
 -- Resetear la tabla de pedidos eliminando todos los datos, pero sin eliminar la estructura.
 TRUNCATE libreriadigital.pedidos;
