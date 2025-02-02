@@ -14,7 +14,7 @@ CREATE TABLE `clientes` (
 
 CREATE TABLE `libros` (
   `id` INT NOT NULL UNIQUE AUTO_INCREMENT,
-   `titulo` VARCHAR(50),
+   `titulo` VARCHAR(50) UNIQUE,
    `autor` VARCHAR(100),
    `genero` VARCHAR(100),
    `precio` INT,
@@ -127,7 +127,7 @@ WHERE EXISTS (
 
 UPDATE libros 
 SET stock = stock - 2
-WHERE id = 2 AND stock >= 2;
+WHERE id = 8 AND stock >= 2;
 
 INSERT INTO pedidos (id_cliente, id_libro, cantidad, fecha_pedido)
 SELECT 5, 4, 1, '2024-01-21'
